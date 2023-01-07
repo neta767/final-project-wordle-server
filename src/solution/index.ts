@@ -1,18 +1,17 @@
-import { Router, Request, Response } from 'express';
-import auth from '../middlewares/auth';
+import {Router, Request, Response} from 'express';
+import bcrypt from 'bcryptjs';
 
-export interface User {
-    email: string;
-    name: string;
-}
+const saltRounds = 10;
+const word = 'which'.toUpperCase();
 
 export const solution = Router();
 
-export function isWinningWord(req: Request, res: Response) {
-        res.send(false);
+export function getHashSolution(req: Request, res: Response) {
+    const hash = bcrypt.hashSync(word, saltRounds);
+    res.send(hash);
 }
 
 // save a new user
-solution.post('/', isWinningWord);
+solution.get('/', getHashSolution);
 
 export default solution;
