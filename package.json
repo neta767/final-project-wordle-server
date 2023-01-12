@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --respawn src/index.ts",
+    "start": "ts-node src",
+    "dev": "tsnd --respawn src",
     "build": "tsc",
-    "start": "echo 'KLUM'",
     "test": "mocha -r ts-node/register src/**/*.test.ts"
   },
   "devDependencies": {

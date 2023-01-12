@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-import { solution } from './solution';
+import {game} from './game';
 
 const app = express();
 
 app.use(cors());
 
-app.use('/solution', solution);
+app.use('/game', game);
 
 export default app;
 
